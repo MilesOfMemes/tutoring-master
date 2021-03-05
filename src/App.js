@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import fire from './Components/Fire';
 import Login from './Components/Login';
-import Hero from './Components/Hero';
+import Home from './Components/Home';
 import Resource from './Components/Resource';
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import './App.css';
+import Assignment from './Components/Assignment';
 
 const App = () => {
   const [user, setUser] = useState('');
@@ -64,6 +66,10 @@ const App = () => {
     fire.auth().signOut();
   };
 
+  const handleHome = () => {
+    <Home/>
+  }
+
   const authListener = () => {
     fire.auth().onAuthStateChanged(user => {
       if(user){
@@ -82,7 +88,10 @@ const App = () => {
   return (
     <div className="App">
       {user ? (
-        <Resource handleLogout={handleLogout}/>
+        <div>
+        <Home handleLogout={handleLogout}/>
+        
+        </div>
       ) : (
         <Login 
           email={email} 
