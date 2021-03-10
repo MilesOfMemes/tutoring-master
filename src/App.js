@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import fire from './Components/Fire';
 import Login from './Components/Login';
-import Home from './Components/Home';
+import Nav from './Components/Nav';
 import Resource from './Components/Resource';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import './App.css';
@@ -67,7 +67,7 @@ const App = () => {
   };
 
   const handleHome = () => {
-    <Home/>
+    <Nav/>
   }
 
   const authListener = () => {
@@ -89,8 +89,7 @@ const App = () => {
     <div className="App">
       {user ? (
         <div>
-        <Home handleLogout={handleLogout}/>
-        
+          <Nav handleLogout={handleLogout}/>
         </div>
       ) : (
         <Login 
